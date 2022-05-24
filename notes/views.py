@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Notes
 from .forms import NotesForm
@@ -12,10 +13,14 @@ class NotesCreateView(CreateView):
     success_url = '/smart/notes'
 
 # Listing View
-class NotesListView(ListView):
+class NotesListView(LoginRequiredMixin, ListView):
     model = Notes
     context_object_name = 'notes'
     template_name: str = 'notes/notes_list.html'  # Can include it or not if the standard naming is followed
+    login_url = "/admin"
+
+    def get_queryset(self):
+        return self.request.user.notes.all()
 
 # Updating View
 class NotesUpdateView(UpdateView):
