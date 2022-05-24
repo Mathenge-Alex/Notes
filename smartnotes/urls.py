@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('', include('notes.urls')),
+    path('smart/', include('notes.urls')),
 ]
