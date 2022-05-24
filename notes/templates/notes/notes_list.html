@@ -1,8 +1,7 @@
-{% load static %}
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    </head>
+{% extends "base.html" %}
+
+{% block content %}
+
     <h1>These are the Notes:</h1>
 
     <ol>
@@ -11,4 +10,5 @@
         <p>{{note.note}} </p>
         {% endfor %}
     </ol>
-</html>
+
+{% endblock %}
