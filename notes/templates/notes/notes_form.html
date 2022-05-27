@@ -1,15 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form method='POST'>{% csrf_token %}
-        {{ form }}
-        <button type="submit" class="btn btn-primary my-5">Submit</button>
-    </form>
-{% if form.errors %}
-<div class="alert alert-danger my-5">
-    {{form.errors.title.as_text}}
+<div class="container-fluid row">
+
+    <h2 class=" mx-5 Text-center"> Make a New Django Note </h2>
+
+    <div class="col-5 my-3 mx-5">
+        
+        <form method='POST'>{% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary my-2">Submit</button>
+        </form>
+
+    </div>
+
+    <div class="col-5 my-2 mx-5">
+
+        <h3 class="my-5">Instructions</h3>
+        
+        <p class="my-4">Add A Note For Your Interaction With Django</p>
+        <p class="my-4">The Title Must include the word <b>"Django"</b> or else the Note will not be recorded.</p>
+        <p class="my-4">Click <b><em>"Submit"</em></b> To save Your Note, or <b><em>"Cancel"</em></b> to discard it.</p>
+
+        {% if form.errors %}
+            <div class="alert alert-danger my-2">
+                {{form.errors.title.as_text}}
+            </div>
+        {% endif %}
+
+    </div>
+    <hr>
+    <!-- Cancel Button -->
+    <div class="cancel margin-auto">
+        <a href="{% url 'notes.list' %}" class="btn btn-secondary mx-5 mb-3">Cancel</a>
+    </div>
+    <hr>
 </div>
-{% endif %}
-<a href="{% url 'notes.list' %}" class="btn btn-secondary">Cancel</a>
 
 {% endblock %}

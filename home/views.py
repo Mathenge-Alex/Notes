@@ -32,6 +32,8 @@ class HomeView(TemplateView):
     template_name = 'home/welcome.html'
     extra_context = {'today': datetime.today()}
 
+class AboutView(TemplateView):
+    template_name = 'home/about.html'
 
 # @login_required(login_url='/admin')
 # def authorized(request):
