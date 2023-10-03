@@ -5,3 +5,7 @@
 ul.errorlist{
     display: none;
 }
+
+.card h6{
+    text-align: left;
+}
