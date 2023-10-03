@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>This is a page for confused People</h3>
+
+<div class="conf">
+    <p>We're going to get you unstuck by showing you all the notes by all users here.</p>
+</div>
+
+{% comment %} <div class="col"> {% endcomment %}
+
+    {% comment %} {% for note in all_notes%} {% endcomment %}
+
+{% comment %} <li>{{note}} </li> {% endcomment %}
+
+{% comment %} <ul>
+    <li>{{note.title}} </li>
+    <li>{{note.user.name}} </li>
+    <li>{{note.note}} </li>
+
+</ul> {% endcomment %}
+
+{% comment %} <div class="row col-3">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title">{{note.title}}</h5>
+        <p class="card-text">{{note.note}}</p>
+        <a href="{% url 'notes.detail' pk=note.id %}" class="btn btn-primary">View More Details</a>
+        </div>
+        <h6>Author: {{note.user.username}}</h6>
+    </div>
+</div> {% endcomment %}
+
+<div class="row">
+    {% for note in all_notes%}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="#" class="card-img-top" alt="{{ note.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{note.title}}</h5>
+                    <p class="card-text">{{ note.note }}</p>
+                    <a href="{% url 'notes.detail' pk=note.id %}" class="btn btn-primary">View More Details</a>
+                </div>
+                <h6>Author: {{note.user.username}}</h6>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:"3" %}
+            </div><div class="row">
+        {% endif %}
+    {% endfor %}
+</div>
+
+
+{% comment %} {% endfor %} {% endcomment %}
+
+{% comment %} </div> {% endcomment %}
+
+
+{% endblock content %}
