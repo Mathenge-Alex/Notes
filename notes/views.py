@@ -47,3 +47,11 @@ class NotesDetailView(DetailView):
     context_object_name = 'note'
     # template_name: str = 'notes/notes_detail.html'
     #  # No template name . . .. standard naming saved us
+    
+def Cofused(request):
+    all_notes = Notes.objects.all()
+    
+    context = {
+        'all_notes': all_notes
+    }
+    return render(request, 'confused.html', context=context)
