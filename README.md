@@ -13,7 +13,7 @@
 
 ## Installation
 To run th application, you need to have Python installed in your computer.
-- Clone this repository (Smart Notes)[git@github.com:Mathenge-Alex/Smartnotes]
+- Clone this repository [Smart Notes][git@github.com:Mathenge-Alex/Smartnotes]
 - Install the requirements file: `pip install -r requirements.txt`
 - Run the server: `python3 manage.py runserver`
 
